@@ -1,0 +1,50 @@
+# Ignore swap files
+*.swp
+*.swo
+*.swn
+
+# Ignore session files
+Session.vim
+Session.vim.old
+
+# Ignore undo files
+undo/
+
+# Ignore backup files
+*.backup
+*~
+
+# Ignore Neovim plugin manager directories
+dein/
+pack/
+minpac/
+plug/
+vimplug/
+vundle/
+
+# Ignore Neovim's remote plugin host
+.nerd_tree_*
+
+# Ignore generated documentation
+doc/tags
+doc/tags-*.*
+
+# Ignore logs
+*.log
+
+# Ignore Python virtual environment
+.vnv/
+
+# Ignore Node.js dependencies
+node_modules/
+
+# Ignore compiled Lua files
+*.lua~
+
+# Ignore compiled Vimscript files
+*.vim~
+
+# Ignore temporary files
+*.tmp
+*.temp
+
