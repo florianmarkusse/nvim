@@ -4,6 +4,9 @@ syntax on
 " Better colors
 set termguicolors
 
+" always yank to clipboard
+set clipboard=unnamedplus
+
 " number of spaces in a <Tab>
 set tabstop=4
 set softtabstop=4

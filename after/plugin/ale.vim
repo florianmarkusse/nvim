@@ -8,10 +8,6 @@ endfunction
 
 execute ale#fix#registry#Add('sqlfmt', 'FormatSQL', ['sql'], 'pg_format for sql')
 
-let g:ale_linters = {
-\   'typescript': ['cspell'],
-\}
-
 let g:ale_fixers = {
 \   'typescript': ['prettier'],
 \   'css': ['prettier'],
@@ -19,8 +15,10 @@ let g:ale_fixers = {
 \   'json': ['prettier'],
 \   'md': ['prettier'],
 \   'sql': ['sqlfmt'],
+\   'c': ['clang-format', 'clangtidy'],
 \}
 
 let g:ale_fix_on_save = 1
-let g:ale_lint_on_save = 1
-let g:ale_completion_enabled = 1
+
+let g:ale_linters_explicit = 1
+let g:ale_enabled = 0
