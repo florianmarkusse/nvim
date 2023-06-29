@@ -51,6 +51,8 @@ set mouse=a
 set ignorecase
 set smartcase
 
+set confirm
+
 let mapleader = ","
 
 lua require('plugins')
