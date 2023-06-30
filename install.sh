@@ -1,5 +1,4 @@
 #!/bin/bash
-
 set -e
 
 YELLOW='\033[33m'
@@ -7,9 +6,7 @@ RED='\033[31m'
 BOLD='\033[1m'
 NO_COLOR='\033[0m'
 
-
 sudo apt update
-
 
 echo -e "${YELLOW}${BOLD}Installing editors, build tools, and languages... ${NO_COLOR}"
 ### Editing/Building
@@ -28,7 +25,6 @@ sudo apt install -y python3
 sudo apt install -y python-is-python3
 echo -e "${YELLOW}Installing go... ${NO_COLOR}"
 ./install-go.sh
-go install mvdan.cc/sh/v3/cmd/shfmt@latest
 
 echo -e "${YELLOW}${BOLD}Installing LSPs... ${NO_COLOR}"
 ### LSPs
@@ -63,7 +59,10 @@ npm install -g prettier
 # SQL
 echo -e "${YELLOW}Installing pg_format... ${NO_COLOR}"
 ./install-sql-formatter.sh
-
+echo -e "${YELLOW}Installing shfmt... ${NO_COLOR}"
+go install mvdan.cc/sh/v3/cmd/shfmt@latest
+echo -e "${YELLOW}Installing shellcheck... ${NO_COLOR}"
+sudo apt install shellcheck
 
 source ~/.bashrc
 

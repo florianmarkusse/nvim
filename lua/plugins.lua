@@ -24,11 +24,6 @@ return require('packer').startup(function(use)
   -- #Hknd event
   use {'andymass/vim-matchup', event = 'VimEnter'}
 
-  use {
-  'prettier/vim-prettier',
-  run = 'yarn install',
-  }
-
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
   use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
