@@ -50,6 +50,7 @@ set mouse=a
 " case insensitive search unless capital letters are used
 set ignorecase
 set smartcase
+set hlsearch
 
 set confirm
 
