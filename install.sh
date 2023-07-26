@@ -68,6 +68,11 @@ go install mvdan.cc/sh/v3/cmd/shfmt@latest
 echo -e "${YELLOW}Installing shellcheck... ${NO_COLOR}"
 sudo apt install shellcheck
 
+
+
+echo -e "${YELLOW}Setting up bash configuration... ${NO_COLOR}"
+./bash-configuration.sh
+
 source "$HOME/.bashrc"
 
 echo -e "${YELLOW}${BOLD}SUCCESS!!! ${NO_COLOR}"
