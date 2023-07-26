@@ -12,6 +12,7 @@ echo -e "${YELLOW}${BOLD}Installing editors, build tools, and languages... ${NO_
 ### Editing/Building
 echo -e "${YELLOW}Installing nvim... ${NO_COLOR}"
 sudo snap install nvim --classic
+echo "alias nvim='nvim .'" >> ~/.bashrc
 echo -e "${YELLOW}Installing clang... ${NO_COLOR}"
 sudo apt install -y clang
 echo -e "${YELLOW}Installing cmake... ${NO_COLOR}"
@@ -56,6 +57,9 @@ sudo apt install -y clang-tidy
 # CSS, HTML, TypeScript, and JavaScript
 echo -e "${YELLOW}Installing prettier... ${NO_COLOR}"
 npm install -g prettier
+# Lua
+echo -e "${YELLOW}Installing stylua... ${NO_COLOR}"
+./install-sql-formatter.sh
 # SQL
 echo -e "${YELLOW}Installing pg_format... ${NO_COLOR}"
 ./install-sql-formatter.sh
@@ -64,7 +68,7 @@ go install mvdan.cc/sh/v3/cmd/shfmt@latest
 echo -e "${YELLOW}Installing shellcheck... ${NO_COLOR}"
 sudo apt install shellcheck
 
-source ~/.bashrc
+source "$HOME/.bashrc"
 
 echo -e "${YELLOW}${BOLD}SUCCESS!!! ${NO_COLOR}"
 

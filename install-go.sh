@@ -1,9 +1,5 @@
 #!/bin/bash
 
-
-
-
-
 set -e
 
 YELLOW='\033[33m'
