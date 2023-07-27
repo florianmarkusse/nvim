@@ -27,10 +27,6 @@ vim.opt.relativenumber = true
 -- Columns used for the line number
 vim.opt.numberwidth = 4
 
--- Highlights the matched text pattern when searching
-vim.opt.incsearch = true
-vim.opt.hlsearch = false
-
 -- Open splits intuitively
 vim.opt.splitbelow = true
 vim.opt.splitright = true
@@ -48,9 +44,11 @@ vim.opt.undofile = true
 vim.opt.mouse = "a"
 
 -- Case insensitive search unless capital letters are used
+-- Highlights the matched text pattern when searching
+vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 
 vim.opt.confirm = true
 
@@ -84,4 +82,17 @@ vim.api.nvim_exec(
   augroup END
 ]],
 	false
+)
+
+vim.api.nvim_set_keymap("n", "n", "nzz", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "N", "Nzz", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "*", "*zz", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "#", "#zz", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "g*", "g*zz", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "g#", "g#zz", { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>/",
+	":noh<CR>",
+	{ noremap = true, silent = true }
 )
