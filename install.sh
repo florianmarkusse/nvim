@@ -13,6 +13,8 @@ echo -e "${YELLOW}${BOLD}Installing editors, build tools, and languages... ${NO_
 echo -e "${YELLOW}Installing nvim... ${NO_COLOR}"
 sudo snap install nvim --classic
 echo "alias nvim='nvim .'" >> ~/.bashrc
+echo -e "${YELLOW}Installing Wezterm... ${NO_COLOR}"
+./install-wezterm.sh
 echo -e "${YELLOW}Installing clang... ${NO_COLOR}"
 sudo apt install -y clang
 echo -e "${YELLOW}Installing cmake... ${NO_COLOR}"
