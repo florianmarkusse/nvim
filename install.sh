@@ -21,6 +21,8 @@ echo -e "${YELLOW}Installing clang... ${NO_COLOR}"
 sudo apt install -y clang
 echo -e "${YELLOW}Installing cmake... ${NO_COLOR}"
 sudo apt install -y cmake
+echo -e "${YELLOW}Installing cppcheck... ${NO_COLOR}"
+sudo apt install -y cppcheck
 echo -e "${YELLOW}Installing xclip... ${NO_COLOR}"
 sudo apt install -y xclip
 echo -e "${YELLOW}Installing node... ${NO_COLOR}"

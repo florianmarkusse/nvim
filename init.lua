@@ -74,7 +74,7 @@ vim.api.nvim_exec(
 	[[
   augroup RunFormatterOnSave
     autocmd!
-    autocmd BufWritePost *.c,*.cpp,*.h,*.hpp :silent !clang-tidy -p build --config-file=.clang-tidy -fix -fix-errors <afile> && clang-format -i -style=file <afile>
+    autocmd BufWritePost *.c,*.cpp,*.h,*.hpp :silent !cppcheck -j$(nproc) --enable=portability <afile> && clang-format -i -style=file <afile>
     autocmd BufWritePost *.js,*.jsx,*.ts,*.tsx,*.html,*.css :silent !prettier --write <afile>
     autocmd BufWritePost *.sql :silent !pg_format -i <afile>
     autocmd BufWritePost *.sh :silent !shfmt -w <afile>
@@ -94,5 +94,18 @@ vim.api.nvim_set_keymap(
 	"n",
 	"<leader>/",
 	":noh<CR>",
+	{ noremap = true, silent = true }
+)
+
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>n",
+	":bnext<CR>",
+	{ noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>p",
+	":bprevious<CR>",
 	{ noremap = true, silent = true }
 )
