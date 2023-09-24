@@ -106,13 +106,13 @@ vim.api.nvim_set_keymap(
 
 vim.api.nvim_set_keymap(
 	"n",
-	"<leader>n",
+	"<leader>w",
 	":bnext<CR>",
 	{ noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
 	"n",
-	"<leader>p",
+	"<leader>q",
 	":bprevious<CR>",
 	{ noremap = true, silent = true }
 )
