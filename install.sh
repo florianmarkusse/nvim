@@ -25,6 +25,8 @@ echo -e "${YELLOW}Installing cppcheck... ${NO_COLOR}"
 sudo apt install -y cppcheck
 echo -e "${YELLOW}Installing xclip... ${NO_COLOR}"
 sudo apt install -y xclip
+echo -e "${YELLOW}Installing BEAR... ${NO_COLOR}"
+sudo apt-get install -y bear
 echo -e "${YELLOW}Installing node... ${NO_COLOR}"
 sudo apt install -y nodejs
 echo -e "${YELLOW}Installing python... ${NO_COLOR}"

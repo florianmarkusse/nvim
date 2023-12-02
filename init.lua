@@ -97,6 +97,8 @@ vim.api.nvim_set_keymap(
 	{ noremap = true, silent = true }
 )
 
+vim.cmd("set tags+=tags")
+
 vim.api.nvim_set_keymap(
 	"n",
 	"<leader>c",
