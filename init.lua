@@ -74,7 +74,7 @@ vim.api.nvim_exec(
 	[[
   augroup RunFormatterOnSave
     autocmd!
-    autocmd BufWritePost *.c,*.cpp,*.h,*.hpp :silent !clang-tidy -fix-errors -p=build <afile> && clang-format -style=file -i <afile>
+    autocmd BufWritePost *.c,*.cpp,*.h,*.hpp :silent !clang-format -style=file -i <afile>
     autocmd BufWritePost *.js,*.jsx,*.ts,*.tsx,*.html,*.css :silent !prettier --write <afile>
     autocmd BufWritePost *.sql :silent !pg_format -i <afile>
     autocmd BufWritePost *.sh :silent !shfmt -w <afile>
