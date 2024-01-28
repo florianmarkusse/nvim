@@ -24,7 +24,6 @@ return {
 			"bashls",
 			"clangd",
 			"cmake",
-			"shellcheck",
 		}
 		for _, lsp in ipairs(servers) do
 			lspconfig[lsp].setup({

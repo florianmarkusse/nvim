@@ -125,20 +125,3 @@ vim.api.nvim_set_keymap(
 	":b#<CR>",
 	{ noremap = true, silent = true }
 )
-
--- This breaks many plugins sadly.
--- Map j to h
-vim.api.nvim_set_keymap("n", "j", "h", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("x", "j", "h", { noremap = true, silent = true })
-
--- Map k to j
-vim.api.nvim_set_keymap("n", "k", "j", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("x", "k", "j", { noremap = true, silent = true })
-
--- Map l to k
-vim.api.nvim_set_keymap("n", "l", "k", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("x", "l", "k", { noremap = true, silent = true })
-
--- Map ; to l
-vim.api.nvim_set_keymap("n", ";", "l", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("x", ";", "l", { noremap = true, silent = true })
