@@ -370,9 +370,6 @@ require("lazy").setup({
 			"folke/which-key.nvim",
 			config = function()
 				require("which-key").setup({
-					modes = {
-						x = false, -- Turn off in visual mode
-					},
 					plugins = {
 						marks = true, -- shows a list of your marks on ' and `
 						registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
