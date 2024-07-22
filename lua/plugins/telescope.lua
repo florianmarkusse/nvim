@@ -1,0 +1,184 @@
+return {
+	{
+		"nvim-telescope/telescope.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			{
+				"nvim-telescope/telescope-fzf-native.nvim",
+				build = "make",
+				cond = function()
+					return vim.fn.executable("make") == 1
+				end,
+			},
+			{ "nvim-telescope/telescope-ui-select.nvim" },
+			{ "nvim-tree/nvim-web-devicons" },
+			"nvim-telescope/telescope-smart-history.nvim",
+			"nvim-telescope/telescope-live-grep-args.nvim",
+			{
+				"AckslD/nvim-neoclip.lua",
+				lazy = true,
+				opts = {},
+			},
+			"jonarrien/telescope-cmdline.nvim",
+			-- To view the current file history in git
+			{
+				"isak102/telescope-git-file-history.nvim",
+				dependencies = { "tpope/vim-fugitive" },
+			},
+		},
+		config = function()
+			local actions = require("telescope.actions")
+			local action_layout = require("telescope.actions.layout")
+			local lga_actions = require("telescope-live-grep-args.actions")
+			local live_grep_args_shortcuts =
+				require("telescope-live-grep-args.shortcuts")
+			local telescope = require("telescope").setup({
+				selection_strategy = "closest",
+				sorting_strategy = "descending",
+				scroll_strategy = "cycle",
+				color_devicons = true,
+				extensions = {
+					["ui-select"] = {
+						require("telescope.themes").get_dropdown(),
+					},
+					neoclip = {
+						initial_mode = "normal",
+					},
+				},
+				layout_strategy = "horizontal",
+				layout_config = {
+					width = 0.99,
+					height = 0.85,
+					preview_cutoff = 120,
+					prompt_position = "bottom",
+					horizontal = {
+						preview_width = function(_, cols, _)
+							if cols > 200 then
+								return math.floor(cols * 0.4)
+							else
+								return math.floor(cols * 0.4)
+							end
+						end,
+					},
+					vertical = {
+						width = 0.9,
+						height = 0.95,
+						preview_height = 0.5,
+					},
+					flex = {
+						horizontal = {
+							preview_width = 0.9,
+						},
+					},
+				},
+				mappings = {
+					i = {
+						["<C-s>"] = actions.select_horizontal,
+						["<C-g>"] = "move_selection_next",
+						["<C-t>"] = "move_selection_previous",
+						["<C-u>"] = actions.results_scrolling_down,
+						["<C-d>"] = actions.results_scrolling_up,
+						["<C-h>"] = action_layout.toggle_preview,
+						["<C-q>"] = actions.send_to_qflist
+							+ actions.open_qflist,
+						["<C-w>"] = actions.send_selected_to_qflist
+							+ actions.open_qflist,
+						["<C-k>"] = actions.cycle_history_next,
+						["<C-j>"] = actions.cycle_history_prev,
+						["<c-a>s"] = actions.select_all,
+						["<c-a>a"] = actions.add_selection,
+						["<M-f>"] = actions.results_scrolling_left,
+						["<M-k>"] = actions.results_scrolling_right,
+					},
+					n = {
+						["<leader>oo"] = lga_actions.quote_prompt(),
+					},
+				},
+				file_ignore_patterns = {
+					"node_modules",
+					"vendor",
+					".git/",
+					"*.lock",
+					"package-lock.json",
+				},
+
+				grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+				qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+			})
+
+			pcall(require("telescope").load_extension, "fzf")
+			pcall(require("telescope").load_extension, "ui-select")
+			pcall(require("telescope").load_extension, "git_file_history")
+			require("telescope").load_extension("neoclip")
+			require("telescope").load_extension("cmdline")
+			require("telescope").load_extension("smart_history")
+
+			local function find_files()
+				require("telescope.builtin").find_files({
+					sorting_strategy = "descending",
+					scroll_strategy = "cycle",
+					layout_config = {},
+				})
+			end
+
+			local function neoclip()
+				require("telescope").extensions.neoclip.default({
+					initial_mode = "normal",
+				})
+			end
+
+			local builtin = require("telescope.builtin")
+			vim.keymap.set(
+				"n",
+				"<leader>ff",
+				builtin.find_files,
+				{ desc = "Find files" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>fg",
+				builtin.live_grep,
+				{ desc = "Grep" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>fr",
+				builtin.grep_string,
+				{ desc = "Grep word under cursor" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>fb",
+				builtin.buffers,
+				{ desc = "Grep open buffers" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>fh",
+				builtin.help_tags,
+				{ desc = "Help tags" }
+			)
+
+			-- then load the extension
+			require("telescope").load_extension("live_grep_args")
+			local actions = require("telescope.actions")
+			local action_layout = require("telescope.actions.layout")
+			local lga_actions = require("telescope-live-grep-args.actions")
+			local live_grep_args_shortcuts =
+				require("telescope-live-grep-args.shortcuts")
+			vim.keymap.set(
+				"n",
+				"<leader>fd",
+				require("telescope").extensions.live_grep_args.live_grep_args,
+				{ desc = "search by grep" }
+			)
+			vim.keymap.set(
+				"v",
+				"<leader>fg",
+				live_grep_args_shortcuts.grep_visual_selection,
+				{ desc = "Search highlighted word" }
+			)
+		end,
+	},
+}
