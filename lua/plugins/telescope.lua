@@ -18,7 +18,6 @@ return {
 			{
 				"AckslD/nvim-neoclip.lua",
 				lazy = true,
-				opts = {},
 			},
 			"jonarrien/telescope-cmdline.nvim",
 			-- To view the current file history in git
@@ -54,11 +53,7 @@ return {
 					prompt_position = "bottom",
 					horizontal = {
 						preview_width = function(_, cols, _)
-							if cols > 200 then
-								return math.floor(cols * 0.4)
-							else
-								return math.floor(cols * 0.4)
-							end
+							return math.floor(cols * 0.4)
 						end,
 					},
 					vertical = {
