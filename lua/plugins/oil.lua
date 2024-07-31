@@ -5,8 +5,6 @@ return {
 		cmd = "Oil",
 		keys = { { "<leader>no", "<cmd>Oil --float<cr>", desc = "Oil buffer" } },
 		enabled = true,
-
-		-- {{{ Option
 		opts = function(_, opts)
 			opts.columns = { "icon" }
 			opts.prompt_save_on_select_new_entry = true
@@ -23,14 +21,5 @@ return {
 				["g."] = "actions.toggle_hidden",
 			}
 		end,
-
-		-- ----------------------------------------------------------------------- }}}
-		-- {{{ Configuration
-
-		config = function(_, opts)
-			require("oil").setup(opts)
-		end,
-
-		-- ----------------------------------------------------------------------- }}}
 	},
 }
