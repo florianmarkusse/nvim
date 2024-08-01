@@ -18,6 +18,7 @@ return {
 			{
 				"AckslD/nvim-neoclip.lua",
 				lazy = true,
+                opts = {},
 			},
 			"jonarrien/telescope-cmdline.nvim",
 			-- To view the current file history in git
