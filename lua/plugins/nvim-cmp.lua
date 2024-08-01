@@ -111,28 +111,6 @@ return {
 					luasnip.lsp_expand(args.body)
 				end,
 			}
-
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			local lspconfig = require("lspconfig")
-
-			lspconfig["tsserver"].setup({
-				capabilities = capabilities,
-			})
-			lspconfig["cssls"].setup({
-				capabilities = capabilities,
-			})
-			lspconfig["html"].setup({
-				capabilities = capabilities,
-			})
-			lspconfig["bashls"].setup({
-				capabilities = capabilities,
-			})
-			lspconfig["clangd"].setup({
-				capabilities = capabilities,
-			})
-			lspconfig["cmake"].setup({
-				capabilities = capabilities,
-			})
 		end,
 	},
 }
