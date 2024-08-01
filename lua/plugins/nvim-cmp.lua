@@ -15,6 +15,8 @@ return {
 				"FelipeLema/cmp-async-path",
 				url = "https://codeberg.org/FelipeLema/cmp-async-path",
 			},
+			"lukas-reineke/cmp-rg",
+			"quangnguyen30192/cmp-nvim-tags",
 		},
 		enabled = true,
 		opts = function(_, opts)
@@ -43,9 +45,19 @@ return {
 					max_item_count = 10,
 				},
 				{
+					name = "tags",
+					keyword_length = 3,
+					max_item_count = 10,
+				},
+				{
 					name = "async_path",
 					keyword_length = 2,
 					max_item_count = 20,
+				},
+				{
+					name = "rg",
+					keyword_length = 3,
+					max_item_count = 10,
 				},
 			}
 
@@ -54,7 +66,9 @@ return {
 				nvim_lua = "[Lua]",
 				luasnip = "[Snippet]",
 				buffer = "[Buffer]",
+				tags = "[Tag]",
 				async_path = "[Path]",
+				rg = "[Rip]",
 			}
 
 			opts.formatting = {
