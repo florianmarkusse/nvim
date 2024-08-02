@@ -39,23 +39,19 @@ return {
 					)
 
 					map(
-						"<leader>ds",
+						"<leader>d",
 						require("telescope.builtin").lsp_document_symbols,
 						"[D]ocument [S]ymbols"
 					)
 					map(
-						"<leader>ws",
+						"<leader>w",
 						require("telescope.builtin").lsp_dynamic_workspace_symbols,
 						"[W]orkspace [S]ymbols"
 					)
-					map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+					map("<leader>r", vim.lsp.buf.rename, "[R]e[n]ame")
+					map("<leader>c", vim.lsp.buf.code_action, "[C]ode [A]ction")
 					map(
-						"<leader>ca",
-						vim.lsp.buf.code_action,
-						"[C]ode [A]ction"
-					)
-					map(
-						"<leader>ps",
+						"<leader>p",
 						vim.lsp.buf.signature_help,
 						"Peek signature"
 					)

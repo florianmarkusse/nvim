@@ -189,7 +189,7 @@ vim.keymap.set("v", "<leader>r", function()
 	)
 	-- send parsed substitution command to command line
 	vim.api.nvim_input("<Esc>:%s/" .. pattern .. "//<Left>")
-end)
+end, { desc = "Replace selected text" })
 
 -- Setup lazy.nvim
 require("lazy").setup("plugins")
