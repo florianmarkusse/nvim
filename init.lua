@@ -11,18 +11,17 @@ vim.opt.expandtab = true
 
 vim.opt.wrap = true
 
-function YankAndCopy()
-    local start_row, start_col = unpack(vim.api.nvim_buf_get_mark(0, "<"))
-    local end_row, end_col = unpack(vim.api.nvim_buf_get_mark(0, ">"))
-    local lines = vim.api.nvim_buf_get_lines(0, start_row - 1, end_row, false)
-    if #lines == 0 then
-        return
-    end
-    lines[#lines] = string.sub(lines[#lines], 1, end_col)
-    vim.fn.setreg('+', table.concat(lines, '\n'))
-end
-
-vim.api.nvim_set_keymap('v', 'y', ':lua YankAndCopy()<CR>', { noremap = true, silent = true })
+-- function YankAndCopy()
+-- 	local start_row, start_col = unpack(vim.api.nvim_buf_get_mark(0, "<"))
+-- 	local end_row, end_col = unpack(vim.api.nvim_buf_get_mark(0, ">"))
+-- 	local lines = vim.api.nvim_buf_get_lines(0, start_row - 1, end_row, false)
+-- 	if #lines == 0 then
+-- 		return
+-- 	end
+-- 	lines[#lines] = string.sub(lines[#lines], 1, end_col)
+-- 	vim.fn.setreg("+", table.concat(lines, "\n"))
+-- 	vim.fn.setreg("*", table.concat(lines, "\n"))
+-- end
 
 -- Enable autoindents
 vim.opt.smartindent = true
@@ -148,6 +147,27 @@ vim.api.nvim_set_keymap(
 	":silent !clang-tidy -fix-errors -p=build %<CR>",
 	{ noremap = true, silent = true }
 )
+
+vim.keymap.set(
+	"x",
+	"<leader>p",
+	[["_dP]],
+	{ desc = "Paste without overwriting clipboard" }
+)
+vim.keymap.set(
+	{ "n", "v" },
+	"<leader>y",
+	[["+y]],
+	{ desc = "Yank to clipboard" }
+)
+vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Yank line to clipboard" })
+
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+vim.keymap.set("n", "x", '"_x')
+vim.keymap.set("n", "X", '"_X')
+
+vim.keymap.set("n", "dh", '"_dh')
+vim.keymap.set("n", "dl", '"_dl')
 
 -- get contents of visual selection
 -- handle unpack deprecation
