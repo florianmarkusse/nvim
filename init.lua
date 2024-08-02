@@ -11,6 +11,19 @@ vim.opt.expandtab = true
 
 vim.opt.wrap = true
 
+function YankAndCopy()
+    local start_row, start_col = unpack(vim.api.nvim_buf_get_mark(0, "<"))
+    local end_row, end_col = unpack(vim.api.nvim_buf_get_mark(0, ">"))
+    local lines = vim.api.nvim_buf_get_lines(0, start_row - 1, end_row, false)
+    if #lines == 0 then
+        return
+    end
+    lines[#lines] = string.sub(lines[#lines], 1, end_col)
+    vim.fn.setreg('+', table.concat(lines, '\n'))
+end
+
+vim.api.nvim_set_keymap('v', 'y', ':lua YankAndCopy()<CR>', { noremap = true, silent = true })
+
 -- Enable autoindents
 vim.opt.smartindent = true
 
