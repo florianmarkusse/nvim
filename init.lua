@@ -4,9 +4,6 @@ vim.cmd("syntax enable")
 -- Better colors
 vim.opt.termguicolors = true
 
--- Always yank to clipboard
-vim.opt.clipboard = "unnamedplus"
-
 -- Number of spaces in a <Tab>
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
