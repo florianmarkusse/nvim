@@ -15,6 +15,14 @@ return {
 				},
 			},
 		},
+		init = function()
+			vim.keymap.set(
+				"n",
+				"<leader>t",
+				":Neotree reveal<CR>",
+				{ desc = "Reveal File in Neotree" }
+			)
+		end,
 		config = {
 			filesystem = {
 				filtered_items = {
