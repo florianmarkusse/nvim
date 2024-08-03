@@ -152,7 +152,6 @@ return {
 						},
 					},
 				},
-				typos_lsp = {},
 			}
 
 			require("mason").setup()
