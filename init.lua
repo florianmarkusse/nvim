@@ -158,5 +158,18 @@ vim.keymap.set("v", "<leader>r", function()
 	vim.api.nvim_input("<Esc>:%s/" .. pattern .. "//<Left>")
 end, { desc = "Replace selected text" })
 
+-- Uncomment to force OS 52 on KVM for example
+-- vim.g.clipboard = {
+--   name = 'OSC 52',
+--   copy = {
+--     ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+--     ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+--   },
+--   paste = {
+--     ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+--     ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+--   },
+-- }
+
 -- Setup lazy.nvim
 require("lazy").setup("plugins")
