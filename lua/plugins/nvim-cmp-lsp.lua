@@ -45,6 +45,11 @@ return {
 
 			local servers = {
 				clangd = {},
+				["cmake-language-server"] = {
+					init_options = {
+						buildDirectory = "build",
+					},
+				},
 				gopls = {
 					settings = {
 						gopls = {
@@ -169,6 +174,8 @@ return {
 				"shfmt",
 				"sqlfluff",
 				"jq",
+				"cmake-language-server",
+				"gersemi",
 			})
 			-- This is slow
 			require("mason-tool-installer").setup({

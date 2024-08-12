@@ -62,6 +62,7 @@ return {
 			opts.formatters_by_ft = {
 				lua = { "stylua" },
 				go = { "goimports" },
+				cmake = { "gersemi" },
 				c = {
 					"clang-format",
 				},
