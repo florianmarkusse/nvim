@@ -92,7 +92,7 @@ return {
 						-- vim.lsp.inlay_hint.enable(bufnr)
 					end,
 				},
-				tsserver = {},
+				ts_ls = {},
 				ruff_lsp = {},
 				yamlls = {},
 				jsonls = {},
@@ -100,6 +100,7 @@ return {
 				terraformls = {},
 				bashls = {},
 				dockerls = {},
+				graphql = {},
 				tailwindcss = {},
 				marksman = {},
 				emmet_ls = {
@@ -176,6 +177,7 @@ return {
 				"jq",
 				"cmake-language-server",
 				"gersemi",
+				"graphql",
 			})
 			-- This is slow
 			require("mason-tool-installer").setup({
