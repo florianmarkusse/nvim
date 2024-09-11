@@ -96,7 +96,9 @@ return {
 				ruff_lsp = {},
 				yamlls = {},
 				jsonls = {},
-				ltex = {},
+				ltex = {
+					language = "en-GB",
+				},
 				terraformls = {},
 				bashls = {},
 				dockerls = {},
