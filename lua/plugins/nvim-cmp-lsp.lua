@@ -53,6 +53,10 @@ return {
 				gopls = {
 					settings = {
 						gopls = {
+							analyses = {
+								unusedparams = true,
+							},
+							staticcheck = true,
 							gofumpt = true,
 						},
 					},
@@ -131,7 +135,6 @@ return {
 						},
 					},
 				},
-				golangci_lint_ls = {},
 				kotlin_language_server = {},
 				vale_ls = {},
 				lua_ls = {

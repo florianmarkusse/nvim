@@ -18,7 +18,7 @@ return {
 			{
 				"AckslD/nvim-neoclip.lua",
 				lazy = true,
-                opts = {},
+				opts = {},
 			},
 			"jonarrien/telescope-cmdline.nvim",
 			-- To view the current file history in git
@@ -31,8 +31,7 @@ return {
 			local actions = require("telescope.actions")
 			local action_layout = require("telescope.actions.layout")
 			local lga_actions = require("telescope-live-grep-args.actions")
-			local live_grep_args_shortcuts =
-				require("telescope-live-grep-args.shortcuts")
+			local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
 			local telescope = require("telescope").setup({
 				selection_strategy = "closest",
 				sorting_strategy = "descending",
@@ -76,10 +75,8 @@ return {
 						["<C-u>"] = actions.results_scrolling_down,
 						["<C-d>"] = actions.results_scrolling_up,
 						["<C-h>"] = action_layout.toggle_preview,
-						["<C-q>"] = actions.send_to_qflist
-							+ actions.open_qflist,
-						["<C-w>"] = actions.send_selected_to_qflist
-							+ actions.open_qflist,
+						["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
+						["<C-w>"] = actions.send_selected_to_qflist + actions.open_qflist,
 						["<C-k>"] = actions.cycle_history_next,
 						["<C-j>"] = actions.cycle_history_prev,
 						["<c-a>s"] = actions.select_all,
@@ -125,44 +122,18 @@ return {
 			end
 
 			local builtin = require("telescope.builtin")
-			vim.keymap.set(
-				"n",
-				"<leader>ff",
-				builtin.find_files,
-				{ desc = "Find files" }
-			)
-			vim.keymap.set(
-				"n",
-				"<leader>fg",
-				builtin.live_grep,
-				{ desc = "Grep" }
-			)
-			vim.keymap.set(
-				"n",
-				"<leader>fr",
-				builtin.grep_string,
-				{ desc = "Grep word under cursor" }
-			)
-			vim.keymap.set(
-				"n",
-				"<leader>fb",
-				builtin.buffers,
-				{ desc = "Grep open buffers" }
-			)
-			vim.keymap.set(
-				"n",
-				"<leader>fh",
-				builtin.help_tags,
-				{ desc = "Help tags" }
-			)
+			vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
+			vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Grep" })
+			vim.keymap.set("n", "<leader>fr", builtin.grep_string, { desc = "Grep word under cursor" })
+			vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Grep open buffers" })
+			vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help tags" })
 
 			-- then load the extension
 			require("telescope").load_extension("live_grep_args")
 			local actions = require("telescope.actions")
 			local action_layout = require("telescope.actions.layout")
 			local lga_actions = require("telescope-live-grep-args.actions")
-			local live_grep_args_shortcuts =
-				require("telescope-live-grep-args.shortcuts")
+			local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
 			vim.keymap.set(
 				"n",
 				"<leader>fd",
