@@ -31,8 +31,10 @@ return {
 			local actions = require("telescope.actions")
 			local action_layout = require("telescope.actions.layout")
 			local lga_actions = require("telescope-live-grep-args.actions")
-			local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
-			local telescope = require("telescope").setup({
+			local action_state = require("telescope.actions.state")
+			local builtin = require("telescope.builtin")
+			require("telescope-live-grep-args.shortcuts")
+			require("telescope").setup({
 				selection_strategy = "closest",
 				sorting_strategy = "descending",
 				scroll_strategy = "cycle",
@@ -88,6 +90,7 @@ return {
 						["<leader>oo"] = lga_actions.quote_prompt(),
 					},
 				},
+
 				file_ignore_patterns = {
 					"node_modules",
 					"vendor",
@@ -107,32 +110,46 @@ return {
 			require("telescope").load_extension("cmdline")
 			require("telescope").load_extension("smart_history")
 
-			local function find_files()
-				require("telescope.builtin").find_files({
-					sorting_strategy = "descending",
-					scroll_strategy = "cycle",
-					layout_config = {},
-				})
-			end
-
 			local function neoclip()
 				require("telescope").extensions.neoclip.default({
 					initial_mode = "normal",
 				})
 			end
 
-			local builtin = require("telescope.builtin")
+			local git_changed_files = function()
+				builtin.git_status({
+					attach_mappings = function(prompt_bufnr, map)
+						local switch_to_file = function()
+							local selection = action_state.get_selected_entry()
+							actions.close(prompt_bufnr)
+							vim.cmd(":e " .. selection.value)
+						end
+						map("i", "<CR>", switch_to_file)
+						map("n", "<CR>", switch_to_file)
+						return true
+					end,
+				})
+			end
+
 			vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
 			vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Grep" })
 			vim.keymap.set("n", "<leader>fr", builtin.grep_string, { desc = "Grep word under cursor" })
 			vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Grep open buffers" })
 			vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help tags" })
+			vim.keymap.set("n", "<leader>ss", git_changed_files, { desc = "Git changes files" })
+			vim.keymap.set("n", "<leader>sp", neoclip, { desc = "Search clipboard history" })
+			vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
+			vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
+			vim.keymap.set("n", "<leader>/", function()
+				builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+					winblend = 10,
+					previewer = false,
+				}))
+			end, { desc = "[/] Fuzzily search in current buffer" })
+			vim.keymap.set("n", "<leader>sc", "<cmd>Telescope cmdline<cr>", { desc = "Cmdline" })
 
 			-- then load the extension
 			require("telescope").load_extension("live_grep_args")
-			local actions = require("telescope.actions")
-			local action_layout = require("telescope.actions.layout")
-			local lga_actions = require("telescope-live-grep-args.actions")
 			local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
 			vim.keymap.set(
 				"n",
