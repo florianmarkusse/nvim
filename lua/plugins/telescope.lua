@@ -69,26 +69,26 @@ return {
 						},
 					},
 				},
-				mappings = {
-					i = {
-						["<C-s>"] = actions.select_horizontal,
-						["<C-g>"] = "move_selection_next",
-						["<C-t>"] = "move_selection_previous",
-						["<C-u>"] = actions.results_scrolling_down,
-						["<C-d>"] = actions.results_scrolling_up,
-						["<C-h>"] = action_layout.toggle_preview,
-						["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-						["<C-w>"] = actions.send_selected_to_qflist + actions.open_qflist,
-						["<C-k>"] = actions.cycle_history_next,
-						["<C-j>"] = actions.cycle_history_prev,
-						["<c-a>s"] = actions.select_all,
-						["<c-a>a"] = actions.add_selection,
-						["<M-f>"] = actions.results_scrolling_left,
-						["<M-k>"] = actions.results_scrolling_right,
-					},
-					n = {
-						["<leader>oo"] = lga_actions.quote_prompt(),
-					},
+				-- mappings = {
+				-- 	i = {
+				-- 		["<C-s>"] = actions.select_horizontal,
+				-- 		["<C-g>"] = "move_selection_next",
+				-- 		["<C-t>"] = "move_selection_previous",
+				-- 		["<C-u>"] = actions.results_scrolling_down,
+				-- 		["<C-d>"] = actions.results_scrolling_up,
+				-- 		["<C-h>"] = action_layout.toggle_preview,
+				-- 		["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
+				-- 		["<C-w>"] = actions.send_selected_to_qflist + actions.open_qflist,
+				-- 		["<C-k>"] = actions.cycle_history_next,
+				-- 		["<C-j>"] = actions.cycle_history_prev,
+				-- 		["<c-a>s"] = actions.select_all,
+				-- 		["<c-a>a"] = actions.add_selection,
+				-- 		["<M-f>"] = actions.results_scrolling_left,
+				-- 		["<M-k>"] = actions.results_scrolling_right,
+				-- 	},
+				-- 	n = {
+				-- 		["<leader>oo"] = lga_actions.quote_prompt(),
+				-- 	},
 				},
 
 				file_ignore_patterns = {
