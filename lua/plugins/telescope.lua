@@ -36,6 +36,17 @@ return {
 			require("telescope-live-grep-args.shortcuts")
 			require("telescope").setup({
 				defaults = {
+					vimgrep_arguments = {
+						"rg",
+						"--color=never",
+						"--no-heading",
+						"--with-filename",
+						"--line-number",
+						"--column",
+						"--smart-case",
+					},
+					prompt_prefix = "> ",
+					selection_caret = "> ",
 					selection_strategy = "closest",
 					sorting_strategy = "descending",
 					scroll_strategy = "cycle",
