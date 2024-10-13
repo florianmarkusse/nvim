@@ -35,72 +35,74 @@ return {
 			local builtin = require("telescope.builtin")
 			require("telescope-live-grep-args.shortcuts")
 			require("telescope").setup({
-				selection_strategy = "closest",
-				sorting_strategy = "descending",
-				scroll_strategy = "cycle",
-				color_devicons = true,
-				extensions = {
-					["ui-select"] = {
-						require("telescope.themes").get_dropdown(),
-					},
-					neoclip = {
-						initial_mode = "normal",
-					},
-				},
-				layout_strategy = "horizontal",
-				layout_config = {
-					width = 0.99,
-					height = 0.85,
-					preview_cutoff = 120,
-					prompt_position = "bottom",
-					horizontal = {
-						preview_width = function(_, cols, _)
-							return math.floor(cols * 0.4)
-						end,
-					},
-					vertical = {
-						width = 0.9,
-						height = 0.95,
-						preview_height = 0.5,
-					},
-					flex = {
-						horizontal = {
-							preview_width = 0.9,
+				defaults = {
+					selection_strategy = "closest",
+					sorting_strategy = "descending",
+					scroll_strategy = "cycle",
+					color_devicons = true,
+					extensions = {
+						["ui-select"] = {
+							require("telescope.themes").get_dropdown(),
+						},
+						neoclip = {
+							initial_mode = "normal",
 						},
 					},
-				},
-				-- mappings = {
-				-- 	i = {
-				-- 		["<C-s>"] = actions.select_horizontal,
-				-- 		["<C-g>"] = "move_selection_next",
-				-- 		["<C-t>"] = "move_selection_previous",
-				-- 		["<C-u>"] = actions.results_scrolling_down,
-				-- 		["<C-d>"] = actions.results_scrolling_up,
-				-- 		["<C-h>"] = action_layout.toggle_preview,
-				-- 		["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-				-- 		["<C-w>"] = actions.send_selected_to_qflist + actions.open_qflist,
-				-- 		["<C-k>"] = actions.cycle_history_next,
-				-- 		["<C-j>"] = actions.cycle_history_prev,
-				-- 		["<c-a>s"] = actions.select_all,
-				-- 		["<c-a>a"] = actions.add_selection,
-				-- 		["<M-f>"] = actions.results_scrolling_left,
-				-- 		["<M-k>"] = actions.results_scrolling_right,
-				-- 	},
-				-- 	n = {
-				-- 		["<leader>oo"] = lga_actions.quote_prompt(),
-				-- 	},
-				-- },
+					layout_strategy = "horizontal",
+					layout_config = {
+						width = 0.99,
+						height = 0.85,
+						preview_cutoff = 120,
+						prompt_position = "bottom",
+						horizontal = {
+							preview_width = function(_, cols, _)
+								return math.floor(cols * 0.4)
+							end,
+						},
+						vertical = {
+							width = 0.9,
+							height = 0.95,
+							preview_height = 0.5,
+						},
+						flex = {
+							horizontal = {
+								preview_width = 0.9,
+							},
+						},
+					},
+					mappings = {
+						i = {
+							-- ["<C-s>"] = actions.select_horizontal,
+							-- ["<C-g>"] = "move_selection_next",
+							-- ["<C-t>"] = "move_selection_previous",
+							-- ["<C-u>"] = actions.results_scrolling_down,
+							-- ["<C-d>"] = actions.results_scrolling_up,
+							["<C-h>"] = action_layout.toggle_preview,
+							-- ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
+							-- ["<C-w>"] = actions.send_selected_to_qflist + actions.open_qflist,
+							-- ["<C-k>"] = actions.cycle_history_next,
+							-- ["<C-j>"] = actions.cycle_history_prev,
+							-- ["<c-a>s"] = actions.select_all,
+							-- ["<c-a>a"] = actions.add_selection,
+							-- ["<M-f>"] = actions.results_scrolling_left,
+							-- ["<M-k>"] = actions.results_scrolling_right,
+						},
+						n = {
+							["<leader>oo"] = lga_actions.quote_prompt(),
+						},
+					},
 
-				file_ignore_patterns = {
-					"node_modules",
-					"vendor",
-					".git/",
-					"*.lock",
-					"package-lock.json",
-				},
+					file_ignore_patterns = {
+						"node_modules",
+						"vendor",
+						".git/",
+						"*.lock",
+						"package-lock.json",
+					},
 
-				grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
-				qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+					grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+					qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+				},
 			})
 
 			pcall(require("telescope").load_extension, "fzf")
