@@ -89,7 +89,7 @@ return {
 				-- 	n = {
 				-- 		["<leader>oo"] = lga_actions.quote_prompt(),
 				-- 	},
-				},
+				-- },
 
 				file_ignore_patterns = {
 					"node_modules",
