@@ -101,40 +101,51 @@ return {
 				yamlls = {},
 				jsonls = {},
 				ltex = {
-					language = "en-GB",
+					language = "en-US",
+					filetypes = { "markdown" },
 				},
 				terraformls = {},
 				bashls = {},
 				dockerls = {},
 				graphql = {},
-				tailwindcss = {},
+				-- tailwindcss = {},
 				marksman = {},
-				emmet_ls = {
-					-- on_attach = on_attach,
-					capabilities = capabilities,
-					filetypes = {
-						"css",
-						"eruby",
-						"html",
-						"javascript",
-						"javascriptreact",
-						"less",
-						"sass",
-						"scss",
-						"svelte",
-						"pug",
-						"typescriptreact",
-						"vue",
-					},
+				html = {
 					init_options = {
-						html = {
-							options = {
-								-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-								["bem.enabled"] = true,
-							},
+						configurationSection = { "html", "css", "javascript" },
+						embeddedLanguages = {
+							css = true,
+							javascript = true,
 						},
 					},
 				},
+				cssls = {},
+				-- emmet_ls = {
+				-- 	-- on_attach = on_attach,
+				-- 	capabilities = capabilities,
+				-- 	filetypes = {
+				-- 		"css",
+				-- 		"eruby",
+				-- 		"html",
+				-- 		"javascript",
+				-- 		"javascriptreact",
+				-- 		"less",
+				-- 		"sass",
+				-- 		"scss",
+				-- 		"svelte",
+				-- 		"pug",
+				-- 		"typescriptreact",
+				-- 		"vue",
+				-- 	},
+				-- 	init_options = {
+				-- 		html = {
+				-- 			options = {
+				-- 				-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+				-- 				["bem.enabled"] = true,
+				-- 			},
+				-- 		},
+				-- 	},
+				-- },
 				kotlin_language_server = {},
 				vale_ls = {},
 				lua_ls = {
