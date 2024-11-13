@@ -97,7 +97,7 @@ return {
 					end,
 				},
 				ts_ls = {},
-				ruff_lsp = {},
+				ruff = {},
 				yamlls = {},
 				jsonls = {},
 				ltex = {
