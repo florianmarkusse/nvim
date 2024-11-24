@@ -23,43 +23,43 @@ return {
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
 
-			opts.sources = {
-				{
-					name = "nvim_lsp",
-					keyword_length = 1,
-					max_item_count = 10,
-				},
-				{
-					name = "nvim_lua",
-					keyword_length = 1,
-					max_item_count = 10,
-				},
-				{
-					name = "luasnip",
-					keyword_length = 1,
-					max_item_count = 10,
-				},
-				{
-					name = "buffer",
-					keyword_length = 3,
-					max_item_count = 10,
-				},
-				{
-					name = "tags",
-					keyword_length = 3,
-					max_item_count = 10,
-				},
-				{
-					name = "async_path",
-					keyword_length = 2,
-					max_item_count = 20,
-				},
-				{
-					name = "rg",
-					keyword_length = 3,
-					max_item_count = 10,
-				},
-			}
+			-- opts.sources = {
+			-- 	{
+			-- 		name = "nvim_lsp",
+			-- 		keyword_length = 1,
+			-- 		max_item_count = 10,
+			-- 	},
+			-- 	{
+			-- 		name = "nvim_lua",
+			-- 		keyword_length = 1,
+			-- 		max_item_count = 10,
+			-- 	},
+			-- 	{
+			-- 		name = "luasnip",
+			-- 		keyword_length = 1,
+			-- 		max_item_count = 10,
+			-- 	},
+			-- 	{
+			-- 		name = "buffer",
+			-- 		keyword_length = 3,
+			-- 		max_item_count = 10,
+			-- 	},
+			-- 	{
+			-- 		name = "tags",
+			-- 		keyword_length = 3,
+			-- 		max_item_count = 10,
+			-- 	},
+			-- 	{
+			-- 		name = "async_path",
+			-- 		keyword_length = 2,
+			-- 		max_item_count = 20,
+			-- 	},
+			-- 	{
+			-- 		name = "rg",
+			-- 		keyword_length = 3,
+			-- 		max_item_count = 10,
+			-- 	},
+			-- }
 
 			local source_mapping = {
 				nvim_lsp = "[LSP]",
