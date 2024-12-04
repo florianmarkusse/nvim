@@ -30,8 +30,9 @@ vim.opt.smartindent = true
 vim.opt.shiftwidth = 4
 
 -- Adds line numbers
-vim.opt.number = true
+vim.opt.nu = true
 vim.opt.relativenumber = true
+vim.o.statuscolumn = "%s %l %r "
 
 -- Columns used for the line number
 vim.opt.numberwidth = 4

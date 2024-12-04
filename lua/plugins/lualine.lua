@@ -4,7 +4,7 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {
 			options = {
-				theme = "modus-vivendi",
+				theme = "tokyonight",
 				icons_enabled = true,
 				always_divide_middle = true,
 				component_separators = { left = " ", right = " " },
