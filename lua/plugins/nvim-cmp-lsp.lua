@@ -99,6 +99,14 @@ return {
 					end,
 				},
 				ts_ls = {},
+				harper_ls = {
+					settings = {
+						["harper-ls"] = {
+							linters = {},
+						},
+					},
+					filetypes = { "markdown" },
+				},
 				ruff = {},
 				yamlls = {},
 				jsonls = {},
