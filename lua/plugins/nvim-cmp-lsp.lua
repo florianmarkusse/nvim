@@ -102,10 +102,6 @@ return {
 				ruff = {},
 				yamlls = {},
 				jsonls = {},
-				ltex = {
-					language = "en-US",
-					filetypes = { "markdown" },
-				},
 				terraformls = {},
 				bashls = {},
 				dockerls = {},
