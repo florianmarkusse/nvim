@@ -16,7 +16,6 @@ return {
 					map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
 					map("gr", vim.lsp.buf.references, "Goto References")
 					map("gi", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-					map("gt", require("telescope.builtin").lsp_type_definitions, "Goto type definition")
 
 					map("<leader>d", require("telescope.builtin").lsp_document_symbols, "[D]ocument Symbols")
 					map("<leader>w", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace Symbols")
@@ -99,14 +98,6 @@ return {
 					end,
 				},
 				ts_ls = {},
-				harper_ls = {
-					settings = {
-						["harper-ls"] = {
-							linters = {},
-						},
-					},
-					filetypes = { "markdown" },
-				},
 				ruff = {},
 				yamlls = {},
 				jsonls = {},

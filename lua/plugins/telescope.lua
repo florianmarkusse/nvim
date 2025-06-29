@@ -21,6 +21,7 @@ return {
 				opts = {},
 			},
 			"jonarrien/telescope-cmdline.nvim",
+			-- "kkharji/sqlite.lua",
 			-- To view the current file history in git
 			{
 				"isak102/telescope-git-file-history.nvim",
