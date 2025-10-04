@@ -50,6 +50,8 @@ echo -e "${YELLOW}Installing openjdk-21-jre-headless... ${NO_COLOR}"
 sudo apt  install -y openjdk-21-jre-headless
 echo -e "${YELLOW}Installing ripgrep... ${NO_COLOR}"
 sudo apt-get -y install ripgrep
+echo -e "${YELLOW}Installing sqlite... ${NO_COLOR}"
+sudo apt-get -y install sqlite3 libsqlite3-dev
 
 echo -e "${YELLOW}${BOLD}Installing LSPs... ${NO_COLOR}"
 ### LSPs
