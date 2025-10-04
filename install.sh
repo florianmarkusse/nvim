@@ -9,11 +9,6 @@ sudo apt update
 
 echo -e "${YELLOW}${BOLD}Installing editors, build tools, and languages... ${NO_COLOR}"
 ### Editing/Building
-echo -e "${YELLOW}Installing nvim... ${NO_COLOR}"
-sudo snap install nvim --classic
-echo "alias nvim='nvim .'" >> ~/.bashrc
-echo -e "${YELLOW}Installing Wezterm... ${NO_COLOR}"
-./install-wezterm.sh
 echo -e "${YELLOW}Installing tmux... ${NO_COLOR}"
 sudo apt install tmux
 echo -e "${YELLOW}Installing clang... ${NO_COLOR}"
@@ -31,8 +26,30 @@ sudo apt install -y nodejs
 echo -e "${YELLOW}Installing python... ${NO_COLOR}"
 sudo apt install -y python3
 sudo apt install -y python-is-python3
+sudo apt install python3-pip
+sudo apt install python3-venv
 echo -e "${YELLOW}Installing go... ${NO_COLOR}"
-./install-go.sh
+sudo apt install -y golang-go
+echo -e "${YELLOW}Installing cargo... ${NO_COLOR}"
+sudo apt  install -y cargo
+echo -e "${YELLOW}Installing luarocks... ${NO_COLOR}"
+sudo apt  install -y luarocks
+echo -e "${YELLOW}Installing ruby... ${NO_COLOR}"
+sudo apt  install -y ruby
+echo -e "${YELLOW}Installing ruby-gems... ${NO_COLOR}"
+sudo apt  install -y ruby-rubygems
+echo -e "${YELLOW}Installing composer... ${NO_COLOR}"
+sudo apt  install -y composer
+echo -e "${YELLOW}Installing php8.3-cli... ${NO_COLOR}"
+sudo apt  install -y php8.3-cli
+echo -e "${YELLOW}Installing npm... ${NO_COLOR}"
+sudo apt  install -y npm
+echo -e "${YELLOW}Installing openjdk-21-jdk-headless... ${NO_COLOR}"
+sudo apt  install -y openjdk-21-jdk-headless
+echo -e "${YELLOW}Installing openjdk-21-jre-headless... ${NO_COLOR}"
+sudo apt  install -y openjdk-21-jre-headless
+echo -e "${YELLOW}Installing ripgrep... ${NO_COLOR}"
+sudo apt-get -y install ripgrep
 
 echo -e "${YELLOW}${BOLD}Installing LSPs... ${NO_COLOR}"
 ### LSPs
@@ -83,5 +100,3 @@ cp .gdbinit "$HOME/.gdbinit"
 source "$HOME/.bashrc"
 
 echo -e "${YELLOW}${BOLD}SUCCESS!!! ${NO_COLOR}"
-
-
