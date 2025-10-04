@@ -122,7 +122,7 @@ return {
 			pcall(require("telescope").load_extension, "git_file_history")
 			require("telescope").load_extension("neoclip")
 			require("telescope").load_extension("cmdline")
-			require("telescope").load_extension("smart_history")
+			-- require("telescope").load_extension("smart_history")
 
 			local function neoclip()
 				require("telescope").extensions.neoclip.default({
