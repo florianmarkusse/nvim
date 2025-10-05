@@ -52,6 +52,9 @@ echo -e "${YELLOW}Installing ripgrep... ${NO_COLOR}"
 sudo apt-get -y install ripgrep
 echo -e "${YELLOW}Installing sqlite... ${NO_COLOR}"
 sudo apt-get -y install sqlite3 libsqlite3-dev
+echo -e "${YELLOW}Installing gdb frontend stuff... ${NO_COLOR}"
+wget -P ~ https://github.com/cyrus-and/gdb-dashboard/raw/master/.gdbinit
+sudo apt install -y python3-pygments
 
 echo -e "${YELLOW}${BOLD}Installing LSPs... ${NO_COLOR}"
 ### LSPs
