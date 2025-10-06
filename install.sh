@@ -55,26 +55,23 @@ sudo apt-get -y install sqlite3 libsqlite3-dev
 echo -e "${YELLOW}Installing gdb frontend stuff... ${NO_COLOR}"
 wget -P ~ https://github.com/cyrus-and/gdb-dashboard/raw/master/.gdbinit
 sudo apt install -y python3-pygments
+echo -e "${YELLOW}Installing Pip... ${NO_COLOR}"
+sudo apt install -y python3-pip
 
 echo -e "${YELLOW}${BOLD}Installing LSPs... ${NO_COLOR}"
 ### LSPs
 # C/C++
 echo -e "${YELLOW}Installing clangd... ${NO_COLOR}"
-sudo apt-get install -y clangd-12
-sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100
-# CMake
-echo -e "${YELLOW}Installing CMake... ${NO_COLOR}"
-sudo apt install -y python3-pip
-sudo pip install cmake-language-server
+sudo apt-get install -y clangd-19
 # CSS & HTML
 echo -e "${YELLOW}Installing vscode-langservers... ${NO_COLOR}"
-npm i -g vscode-langservers-extracted
+sudo npm i -g vscode-langservers-extracted
 # TypeScript & JavaScript
 echo -e "${YELLOW}Installing svelte-language-server... ${NO_COLOR}"
-npm i -g svelte-language-server
+sudo npm i -g svelte-language-server
 # BASH
 echo -e "${YELLOW}Installing bash-language-server... ${NO_COLOR}"
-npm i -g bash-language-server
+sudo npm i -g bash-language-server
 
 echo -e "${YELLOW}${BOLD}Installing formatters... ${NO_COLOR}"
 ### Formatters
@@ -85,7 +82,7 @@ echo -e "${YELLOW}Installing clang-tidy... ${NO_COLOR}"
 sudo apt install -y clang-tidy
 # CSS, HTML, TypeScript, and JavaScript
 echo -e "${YELLOW}Installing prettier... ${NO_COLOR}"
-npm install -g prettier
+sudo npm install -g prettier
 # Lua
 echo -e "${YELLOW}Installing stylua... ${NO_COLOR}"
 ./install-sql-formatter.sh
@@ -99,8 +96,6 @@ sudo apt install shellcheck
 
 echo -e "${YELLOW}Setting up bash configuration... ${NO_COLOR}"
 ./bash-configuration.sh
-
-cp .gdbinit "$HOME/.gdbinit"
 
 source "$HOME/.bashrc"
 
