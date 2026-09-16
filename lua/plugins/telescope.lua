@@ -101,6 +101,8 @@ return {
 						},
 						n = {
 							["<leader>oo"] = lga_actions.quote_prompt(),
+							["<leader>1"] = actions.send_to_qflist + actions.open_qflist,
+							["<leader>2"] = actions.send_selected_to_qflist + actions.open_qflist,
 						},
 					},
 

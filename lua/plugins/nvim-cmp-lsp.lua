@@ -44,6 +44,18 @@ return {
 
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+			-- Automatically detect a Python virtual environment for this workspace
+			local function get_python_path(workspace)
+				local venv_path = workspace .. "/.venv/bin/python"
+				if vim.fn.has("win32") == 1 then
+					venv_path = workspace .. "\\.venv\\Scripts\\python.exe"
+				end
+				if vim.fn.filereadable(venv_path) == 1 then
+					return venv_path
+				end
+				return "python" -- fallback to system python
+			end
+
 			local servers = {
 				clangd = {},
 				["cmake-language-server"] = {
@@ -62,7 +74,20 @@ return {
 						},
 					},
 				},
-				pyright = {},
+				pyright = {
+					settings = {
+						python = {
+							analysis = {
+								autoSearchPaths = true,
+								useLibraryCodeForTypes = true,
+								diagnosticMode = "workspace",
+							},
+						},
+					},
+					before_init = function(_, config)
+						config.settings.python.pythonPath = get_python_path(vim.fn.getcwd())
+					end,
+				},
 				rust_analyzer = {
 					settings = {
 						["rust-analyzer"] = {
@@ -98,7 +123,22 @@ return {
 					end,
 				},
 				ts_ls = {},
-				ruff = {},
+				ruff = {
+					cmd = { "ruff", "server", "--preview" },
+					filetypes = { "python" },
+					root_markers = { "pyproject.toml", "ruff.toml", ".ruff.toml", ".git" },
+					init_options = {
+						settings = {
+							fixAll = true,
+							formatter = { enabled = true },
+							linter = { enabled = true },
+						},
+					},
+					settings = {
+						interpreter = { ".venv/bin/python" },
+						args = {},
+					},
+				},
 				yamlls = {},
 				jsonls = {},
 				terraformls = {},
